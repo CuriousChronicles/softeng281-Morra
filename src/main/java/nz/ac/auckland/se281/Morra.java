@@ -1,6 +1,5 @@
 package nz.ac.auckland.se281;
 
-
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
@@ -8,7 +7,6 @@ public class Morra {
   private Boolean isNewGame = false;
   private int roundNum = 0;
   private String playerName = null;
-  private Difficulty difficultyLevel;
 
   public Morra() {}
 
@@ -16,7 +14,9 @@ public class Morra {
     playerName = options[0];
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
     isNewGame = true;
-    difficultyLevel = difficulty;
+
+    // Create jarvis AI
+    //Jarvis jarvis = AIFactory.createJarvis(difficulty);
   }
 
   public void play() {
@@ -40,9 +40,7 @@ public class Morra {
           if ((humanFingers >= 1) && (humanFingers <= 5) && (humanSum >= 1) && (humanSum <= 10)) {
             validInput = true;
             MessageCli.PRINT_INFO_HAND.printMessage(playerName, humanInput[0], humanInput[1]);
-            
-            // Create Jarvis instance at selected difficulty level
-            Jarvis jarvis = AIFactory.createJarvis(difficultyLevel);
+
           } else {
             MessageCli.INVALID_INPUT.printMessage();
           }
