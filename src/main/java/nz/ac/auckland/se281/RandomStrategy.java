@@ -1,15 +1,16 @@
 package nz.ac.auckland.se281;
 
-public class RandomStrategy implements Strategy{
+public class RandomStrategy implements Strategy {
+  private int jarvisFingers;
 
-    @Override
-    public int getJarvisFingers() {
-        return Utils.getRandomNumber(1, 5);
-    }
+  @Override
+  public int getJarvisFingers() {
+    this.jarvisFingers = Utils.getRandomNumber(1, 5);
+    return jarvisFingers;
+  }
 
-    @Override
-    public int getJarvisSum() {
-        return Utils.getRandomNumber(2 + getJarvisFingers(), 10);
-    }
-    
+  @Override
+  public int getJarvisSum() {
+    return Utils.getRandomNumber(1 + jarvisFingers, jarvisFingers + 5);
+  }
 }

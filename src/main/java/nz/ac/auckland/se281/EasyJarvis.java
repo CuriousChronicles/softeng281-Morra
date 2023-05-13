@@ -1,13 +1,18 @@
 package nz.ac.auckland.se281;
 
-public class EasyJarvis implements Jarvis {
+public class EasyJarvis extends Jarvis {
   // Uses random strategy
   Strategy randomStrategy = new RandomStrategy();
 
-  //   public void printJarvis() {
-  //     int fingers = getJarvisFingers();
-  //     int sum = getJarvisSum();
-  //     MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", Integer.toString(fingers),
-  // Integer.toString(sum));
-  //   }
+  @Override
+  public int getJarvisFingers() {
+    this.jarvisFingers = randomStrategy.getJarvisFingers();
+    return jarvisFingers;
+  }
+
+  @Override
+  public int getJarvisSum() {
+    this.jarvisSum = randomStrategy.getJarvisSum();
+    return jarvisSum;
+  }
 }

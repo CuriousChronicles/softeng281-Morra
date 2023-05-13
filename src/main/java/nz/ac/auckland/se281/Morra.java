@@ -7,6 +7,8 @@ public class Morra {
   private Boolean isNewGame = false;
   private int roundNum = 0;
   private String playerName = null;
+  private AIFactory jarvisFactory = new AIFactory();
+  private Jarvis jarvis;
 
   public Morra() {}
 
@@ -16,7 +18,7 @@ public class Morra {
     isNewGame = true;
 
     // Create jarvis AI
-    //Jarvis jarvis = AIFactory.createJarvis(difficulty);
+    this.jarvis = jarvisFactory.createJarvis(difficulty);
   }
 
   public void play() {
@@ -40,6 +42,19 @@ public class Morra {
           if ((humanFingers >= 1) && (humanFingers <= 5) && (humanSum >= 1) && (humanSum <= 10)) {
             validInput = true;
             MessageCli.PRINT_INFO_HAND.printMessage(playerName, humanInput[0], humanInput[1]);
+            int jarvisFingers = jarvis.getJarvisFingers();
+            int jarvisSum = jarvis.getJarvisSum();
+            jarvis.printJarvis();
+
+            // Print Outcome
+            int actualSum = humanFingers + jarvisFingers;
+            if (actualSum == jarvisSum) {
+              MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
+            } else if (actualSum == humanSum) {
+              MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
+            } else {
+              MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
+            }
 
           } else {
             MessageCli.INVALID_INPUT.printMessage();
