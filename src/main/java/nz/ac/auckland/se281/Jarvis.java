@@ -13,8 +13,4 @@ public abstract class Jarvis {
     MessageCli.PRINT_INFO_HAND.printMessage(
         "Jarvis", Integer.toString(jarvisFingers), Integer.toString(jarvisSum));
   }
-
-  public Strategy setStrategy() {
-    return null;
-  }
 }

@@ -1,7 +1,12 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public class Player {
   // Need an arraylist to store players privious fingers
+  ArrayList<Integer> fingersDatabase = new ArrayList<Integer>();
+  private int currentPlayerFinger;
+  private int currentPlayerSum;
 
   public void play(String playerName) {
     boolean isValidInput = false;
@@ -9,11 +14,18 @@ public class Player {
     while (isValidInput == false) {
       System.out.println("Give <fingers> <sum> and press enter");
       String input = Utils.scanner.nextLine();
-      String[] humanInput = input.split(" ");
+      String[] playerInput = input.split(" ");
 
-      if (isValidInput(humanInput)) {
+      if (isValidInput(playerInput)) {
+        int playerFingers = Integer.parseInt(playerInput[0]);
+        int playerSum = Integer.parseInt(playerInput[1]);
+        this.currentPlayerFinger = playerFingers;
+        this.currentPlayerSum = playerSum;
         isValidInput = true;
-        MessageCli.PRINT_INFO_HAND.printMessage(playerName, humanInput[0], humanInput[1]);
+
+        fingersDatabase.add(playerFingers);
+
+        MessageCli.PRINT_INFO_HAND.printMessage(playerName, playerInput[0], playerInput[1]);
       }
     }
   }
@@ -21,15 +33,23 @@ public class Player {
   public boolean isValidInput(String[] playerInput) {
     boolean isValidInput = false;
     if (Utils.isInteger(playerInput[0]) && Utils.isInteger(playerInput[1])) {
-      int humanFingers = Integer.parseInt(playerInput[0]);
-      int humanSum = Integer.parseInt(playerInput[1]);
+      int playerFingers = Integer.parseInt(playerInput[0]);
+      int playerSum = Integer.parseInt(playerInput[1]);
 
-      if ((humanFingers >= 1) && (humanFingers <= 5) && (humanSum >= 1) && (humanSum <= 10)) {
+      if ((playerFingers >= 1) && (playerFingers <= 5) && (playerSum >= 1) && (playerSum <= 10)) {
         isValidInput = true;
       } else {
         MessageCli.INVALID_INPUT.printMessage();
       }
     }
     return isValidInput;
+  }
+
+  public int getCurrentFinger() {
+    return currentPlayerFinger;
+  }
+
+  public int getCurrentSum() {
+    return currentPlayerSum;
   }
 }
