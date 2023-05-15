@@ -1,7 +1,7 @@
 package nz.ac.auckland.se281;
 
 public interface Strategy {
-    public int getJarvisFingers();
+  public int getJarvisFingers();
 
-    public int getJarvisSum();
+  public int getJarvisSum();
 }
