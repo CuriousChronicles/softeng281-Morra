@@ -1,10 +1,13 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public abstract class Jarvis {
   protected int jarvisFingers;
   protected int jarvisSum;
+  private Strategy strategy;
 
-  // private Strategy strategy;
+  ArrayList<Integer> previousPlayersFingers;
 
   // private int roundCount = 0;
 
@@ -17,9 +20,14 @@ public abstract class Jarvis {
     MessageCli.PRINT_INFO_HAND.printMessage(
         "Jarvis", Integer.toString(jarvisFingers), Integer.toString(jarvisSum));
   }
-  // public void setStrategy(Strategy strategy) {
-  //   this.strategy = strategy;
-  // }
+
+  public void setStrategy(Strategy strategy) {
+    this.strategy = strategy;
+  }
+
+  public void getPreviousPlayersFingers(ArrayList<Integer> playersFingersList) {
+    this.previousPlayersFingers = playersFingersList;
+  }
 
   // public void changeStrategy(Morra game) {
   //   if (strategy instanceof RandomStrategy) {

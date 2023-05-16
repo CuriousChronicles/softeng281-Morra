@@ -4,10 +4,10 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class AIFactory {
 
-  public Jarvis createJarvis(Difficulty difficulty) {
+  public Jarvis createJarvis(Difficulty difficulty, Strategy strategy) {
     switch (difficulty) {
       case EASY:
-        return new EasyJarvis();
+        return new EasyJarvis(strategy);
       case MEDIUM:
         return new MediumJarvis();
         // case HARD:

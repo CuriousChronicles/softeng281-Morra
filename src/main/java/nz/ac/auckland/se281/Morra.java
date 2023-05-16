@@ -23,8 +23,8 @@ public class Morra {
     isNewGame = true;
 
     // Create jarvis AI
-    this.jarvis = jarvisFactory.createJarvis(difficulty);
-    // jarvis.setStrategy(Strategy );
+    Strategy initialStrategy = new RandomStrategy();
+    this.jarvis = jarvisFactory.createJarvis(difficulty, initialStrategy);
   }
 
   public void play() {
