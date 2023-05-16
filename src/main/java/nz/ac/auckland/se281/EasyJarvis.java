@@ -2,17 +2,22 @@ package nz.ac.auckland.se281;
 
 public class EasyJarvis extends Jarvis {
   // Uses random strategy
-  Strategy randomStrategy = new RandomStrategy();
+  Strategy strategy = new RandomStrategy();
+
+  // Strategy strategy;
 
   @Override
   public int getJarvisFingers() {
-    this.jarvisFingers = randomStrategy.getJarvisFingers();
+    this.jarvisFingers = strategy.getJarvisFingers();
     return jarvisFingers;
   }
 
   @Override
   public int getJarvisSum() {
-    this.jarvisSum = randomStrategy.getJarvisSum();
+    this.jarvisSum = strategy.getJarvisSum();
     return jarvisSum;
   }
+  // public void setStrategy(Strategy strategy) {
+  //   this.strategy = strategy;
+  // }
 }

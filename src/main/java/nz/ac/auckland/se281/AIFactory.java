@@ -8,8 +8,8 @@ public class AIFactory {
     switch (difficulty) {
       case EASY:
         return new EasyJarvis();
-        // case MEDIUM:
-        //     return new MediumJarvis();
+      case MEDIUM:
+        return new MediumJarvis();
         // case HARD:
         //     return new HardJarvis();
         // case MASTER:
