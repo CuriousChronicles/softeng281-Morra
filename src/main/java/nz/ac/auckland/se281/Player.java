@@ -1,10 +1,11 @@
 package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
   // Need an arraylist to store players privious fingers
-  ArrayList<Integer> fingersDatabase = new ArrayList<Integer>();
+  List<Integer> fingersDatabase = new ArrayList<>();
   private int currentPlayerFinger;
   private int currentPlayerSum;
 
@@ -23,11 +24,13 @@ public class Player {
         this.currentPlayerSum = playerSum;
         isValidInput = true;
 
-        fingersDatabase.add(playerFingers);
-
         MessageCli.PRINT_INFO_HAND.printMessage(playerName, playerInput[0], playerInput[1]);
       }
     }
+  }
+
+  public void addFingersToDatabase(int playerFingers) {
+    fingersDatabase.add(playerFingers);
   }
 
   public boolean isValidInput(String[] playerInput) {

@@ -1,11 +1,10 @@
 package nz.ac.auckland.se281;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AverageStrategy implements Strategy {
   private int jarvisFingers;
-  ArrayList<Integer> previousPlayersFingers;
-  // Strategy strategy = new RandomStrategy();
+  List<Integer> previousPlayersFingers;
 
   @Override
   public int getJarvisFingers() {
@@ -18,15 +17,17 @@ public class AverageStrategy implements Strategy {
     return (getAverage() + jarvisFingers);
   }
 
-  public void getPreviousPlayersFingers(ArrayList<Integer> playersFingersList) {
+  @Override
+  public void getPreviousPlayersFingers(List<Integer> playersFingersList) {
     this.previousPlayersFingers = playersFingersList;
   }
 
   public int getAverage() {
-    int sum = 0;
+    float sum = 0f;
     for (Integer i : previousPlayersFingers) {
       sum += i;
     }
-    return Math.round(sum / previousPlayersFingers.size());
+
+    return (int) Math.round(sum / previousPlayersFingers.size());
   }
 }

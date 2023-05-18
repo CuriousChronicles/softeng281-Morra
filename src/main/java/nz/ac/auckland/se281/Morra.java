@@ -16,6 +16,7 @@ public class Morra {
   public Morra() {}
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
+    roundNum = 0;
     playerName = options[0];
 
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
@@ -30,6 +31,7 @@ public class Morra {
   public void play() {
     if (isNewGame == true) {
       roundNum++;
+      jarvis.changeStrategy(roundNum, player.fingersDatabase);
       MessageCli.START_ROUND.printMessage(Integer.toString(roundNum));
       player.play(playerName);
 
@@ -40,16 +42,15 @@ public class Morra {
       jarvis.printJarvis();
       printOutcome(jarvisFingers, jarvisSum);
 
-      // End the game
-      // isNewGame = false;
+      player.addFingersToDatabase(player.getCurrentFinger());
     } else {
       MessageCli.GAME_NOT_STARTED.printMessage();
     }
   }
 
-  public int getRoundNum() {
-    return roundNum;
-  }
+  // public int getRoundNum() {
+  //   return roundNum;
+  // }
 
   public void printOutcome(int jarvisFingers, int jarvisSum) {
     int actualSum = player.getCurrentFinger() + jarvisFingers;
