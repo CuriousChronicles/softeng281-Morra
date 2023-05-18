@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Jarvis {
   protected int jarvisFingers;
   protected int jarvisSum;
-  private Strategy strategy;
+  // private Strategy strategy;
 
   // ArrayList<Integer> previousPlayersFingers;
 

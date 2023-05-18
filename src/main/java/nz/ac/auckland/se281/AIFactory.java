@@ -10,8 +10,8 @@ public class AIFactory {
         return new EasyJarvis(strategy);
       case MEDIUM:
         return new MediumJarvis(strategy);
-        // case HARD:
-        //     return new HardJarvis();
+      case HARD:
+        return new HardJarvis(strategy);
         // case MASTER:
         //     return new MasterJarvis();
       default:
