@@ -25,7 +25,8 @@ public class Morra {
 
     // Create jarvis AI
     Strategy initialStrategy = new RandomStrategy();
-    this.jarvis = jarvisFactory.createJarvis(difficulty, initialStrategy);
+    this.jarvis = jarvisFactory.createJarvis(difficulty);
+    jarvis.setStrategy(initialStrategy);
   }
 
   public void play() {
@@ -47,10 +48,6 @@ public class Morra {
       MessageCli.GAME_NOT_STARTED.printMessage();
     }
   }
-
-  // public int getRoundNum() {
-  //   return roundNum;
-  // }
 
   public void printOutcome(int jarvisFingers, int jarvisSum) {
     int actualSum = player.getCurrentFinger() + jarvisFingers;

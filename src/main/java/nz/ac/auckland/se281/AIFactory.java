@@ -4,16 +4,16 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class AIFactory {
 
-  public Jarvis createJarvis(Difficulty difficulty, Strategy strategy) {
+  public Jarvis createJarvis(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
-        return new EasyJarvis(strategy);
+        return new EasyJarvis();
       case MEDIUM:
-        return new MediumJarvis(strategy);
+        return new MediumJarvis();
       case HARD:
-        return new HardJarvis(strategy);
-        // case MASTER:
-        //     return new MasterJarvis();
+        return new HardJarvis();
+      case MASTER:
+        return new MasterJarvis();
       default:
         System.err.println("wrong Jarvis type");
         System.exit(0);

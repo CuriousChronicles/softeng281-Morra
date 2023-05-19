@@ -5,15 +5,17 @@ import java.util.List;
 public abstract class Jarvis {
   protected int jarvisFingers;
   protected int jarvisSum;
-  // private Strategy strategy;
+  protected Strategy strategy;
 
-  // ArrayList<Integer> previousPlayersFingers;
+  public int getJarvisFingers() {
+    this.jarvisFingers = strategy.getJarvisFingers();
+    return jarvisFingers;
+  }
 
-  // private int roundCount = 0;
-
-  public abstract int getJarvisFingers();
-
-  public abstract int getJarvisSum();
+  public int getJarvisSum() {
+    this.jarvisSum = strategy.getJarvisSum();
+    return jarvisSum;
+  }
 
   // All Jarvis print out the same thing
   public void printJarvis() {
@@ -21,15 +23,9 @@ public abstract class Jarvis {
         "Jarvis", Integer.toString(jarvisFingers), Integer.toString(jarvisSum));
   }
 
-  // public void setStrategy(Strategy strategy) {
-  //   this.strategy = strategy;
-  // }
+  public void setStrategy(Strategy strategy) {
+    this.strategy = strategy;
+  }
 
-  // public abstract void changeStrategy(int roundNum);
-
-  // public void setPreviousPlayersFingers(ArrayList<Integer> playersFingersList) {
-  //   this.previousPlayersFingers = playersFingersList;
-  // }
-
-  public void changeStrategy(int roundNum, List<Integer> playersFingers) {}
+  public abstract void changeStrategy(int roundNum, List<Integer> playersFingers);
 }
