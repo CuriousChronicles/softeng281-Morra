@@ -39,7 +39,7 @@ public class Morra {
   public void play() {
     if (isNewGame == true) {
       roundNum++;
-      jarvis.changeStrategy(roundNum, player.fingersDatabase);
+      jarvis.changeStrategy(roundNum, player.getFingersDatabase());
       MessageCli.START_ROUND.printMessage(Integer.toString(roundNum));
       player.play(playerName);
 

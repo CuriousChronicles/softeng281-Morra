@@ -4,7 +4,7 @@ import java.util.List;
 
 public class AverageStrategy implements Strategy {
   private int jarvisFingers;
-  List<Integer> previousPlayersFingers;
+  private List<Integer> previousPlayersFingers;
 
   @Override
   public int getJarvisFingers() {

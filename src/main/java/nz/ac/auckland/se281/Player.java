@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Player {
   // Need an arraylist to store players privious fingers
-  List<Integer> fingersDatabase = new ArrayList<>();
+  private List<Integer> fingersDatabase = new ArrayList<>();
   private int currentPlayerFinger;
   private int currentPlayerSum;
   private String playerName;
@@ -60,5 +60,9 @@ public class Player {
 
   public String getPlayerName() {
     return playerName;
+  }
+
+  public List<Integer> getFingersDatabase() {
+    return fingersDatabase;
   }
 }

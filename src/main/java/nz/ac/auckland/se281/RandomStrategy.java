@@ -17,8 +17,5 @@ public class RandomStrategy implements Strategy {
   }
 
   @Override
-  public void getPreviousPlayersFingers(List<Integer> playersFingers) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getPreviousPlayersFingers'");
-  }
+  public void getPreviousPlayersFingers(List<Integer> playersFingers) {}
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 public class TopStrategy implements Strategy {
-  int jarvisFingers;
-  List<Integer> previousPlayersFingers;
+  private int jarvisFingers;
+  private List<Integer> previousPlayersFingers;
 
   @Override
   public int getJarvisFingers() {
