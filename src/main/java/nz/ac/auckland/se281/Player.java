@@ -8,6 +8,7 @@ public class Player {
   List<Integer> fingersDatabase = new ArrayList<>();
   private int currentPlayerFinger;
   private int currentPlayerSum;
+  private String playerName;
 
   public void play(String playerName) {
     boolean isValidInput = false;
@@ -16,6 +17,7 @@ public class Player {
       System.out.println("Give <fingers> <sum> and press enter");
       String input = Utils.scanner.nextLine();
       String[] playerInput = input.split(" ");
+      this.playerName = playerName;
 
       if (isValidInput(playerInput)) {
         int playerFingers = Integer.parseInt(playerInput[0]);
@@ -54,5 +56,9 @@ public class Player {
 
   public int getCurrentSum() {
     return currentPlayerSum;
+  }
+
+  public String getPlayerName() {
+    return playerName;
   }
 }
