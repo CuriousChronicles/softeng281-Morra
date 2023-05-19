@@ -51,10 +51,12 @@ public class Morra {
 
   public void printOutcome(int jarvisFingers, int jarvisSum) {
     int actualSum = player.getCurrentFinger() + jarvisFingers;
-    if (actualSum == jarvisSum) {
-      MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
+    if ((actualSum == jarvisSum) && (actualSum == player.getCurrentSum())) {
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     } else if (actualSum == player.getCurrentSum()) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
+    } else if (actualSum == jarvisSum) {
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
     } else {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
