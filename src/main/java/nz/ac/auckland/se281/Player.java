@@ -10,6 +10,7 @@ public class Player {
   private int currentPlayerSum;
   private String playerName;
 
+  // Play method should get the players fingers and sum guess
   public void play(String playerName) {
     boolean isValidInput = false;
 
@@ -37,10 +38,12 @@ public class Player {
 
   public boolean isValidInput(String[] playerInput) {
     boolean isValidInput = false;
+    // Check if the string inputs can be converted into an integer
     if (Utils.isInteger(playerInput[0]) && Utils.isInteger(playerInput[1])) {
       int playerFingers = Integer.parseInt(playerInput[0]);
       int playerSum = Integer.parseInt(playerInput[1]);
 
+      // The the fingers and sum are within the correct range, then set isValidInput to true
       if ((playerFingers >= 1) && (playerFingers <= 5) && (playerSum >= 1) && (playerSum <= 10)) {
         isValidInput = true;
       } else {

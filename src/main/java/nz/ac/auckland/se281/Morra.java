@@ -73,8 +73,10 @@ public class Morra {
     return ((jarvisPoints == pointsToWin) || (playerPoints == pointsToWin));
   }
 
+  // This method prints out the outcome if the round
   public void printOutcome(int jarvisFingers, int jarvisSum) {
     int actualSum = player.getCurrentFinger() + jarvisFingers;
+    // if both sums are equal to the actual sum, then it is a draw
     if ((actualSum == jarvisSum) && (actualSum == player.getCurrentSum())) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     } else if (actualSum == player.getCurrentSum()) {
@@ -84,6 +86,7 @@ public class Morra {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
       jarvisPoints++;
     } else {
+      // If no one gueses the correct sum, then outcome is a draw
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
   }
