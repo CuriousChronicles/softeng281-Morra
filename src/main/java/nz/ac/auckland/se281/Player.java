@@ -15,11 +15,13 @@ public class Player {
     boolean isValidInput = false;
 
     while (isValidInput == false) {
+      // Get players inputs
       System.out.println("Give <fingers> <sum> and press enter");
       String input = Utils.scanner.nextLine();
       String[] playerInput = input.split(" ");
       this.playerName = playerName;
 
+      // Check if players inputs are valid or not
       if (isValidInput(playerInput)) {
         int playerFingers = Integer.parseInt(playerInput[0]);
         int playerSum = Integer.parseInt(playerInput[1]);

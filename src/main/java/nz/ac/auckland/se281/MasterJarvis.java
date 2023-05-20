@@ -9,11 +9,9 @@ public class MasterJarvis extends Jarvis {
     if ((roundNum >= 4)) {
       // Alternate through average and top strategy
       if (roundNum % 2 == 0) {
-        // setStrategy(new AverageStrategy());
-        this.strategy = new AverageStrategy();
+        setStrategy(new AverageStrategy());
       } else {
-        // setStrategy(new TopStrategy());
-        this.strategy = new TopStrategy();
+        setStrategy(new TopStrategy());
       }
       this.strategy.getPreviousPlayersFingers(playerFingers);
     }

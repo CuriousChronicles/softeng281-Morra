@@ -7,7 +7,7 @@ public class HardJarvis extends Jarvis {
   @Override
   public void changeStrategy(int roundNum, List<Integer> playerFingers) {
     if ((roundNum >= 4)) {
-      this.strategy = new TopStrategy();
+      setStrategy(new TopStrategy());
       this.strategy.getPreviousPlayersFingers(playerFingers);
     }
   }

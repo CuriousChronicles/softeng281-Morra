@@ -7,7 +7,7 @@ public class MediumJarvis extends Jarvis {
   @Override
   public void changeStrategy(int roundNum, List<Integer> playerFingers) {
     if ((roundNum >= 4)) {
-      this.strategy = new AverageStrategy();
+      setStrategy(new AverageStrategy());
       this.strategy.getPreviousPlayersFingers(playerFingers);
     }
   }
