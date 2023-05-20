@@ -13,12 +13,13 @@ public class Morra {
   private int playerPoints;
 
   // Create a static method, so then i don't need to create an instance of factory!
-  private AIFactory jarvisFactory = new AIFactory();
+  private AiFactory jarvisFactory = new AiFactory();
   private Jarvis jarvis;
 
   public Morra() {}
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
+    // Check if new game inputs are valid
     isNewGame = true;
     roundNum = 0;
     jarvisPoints = 0;

@@ -2,7 +2,7 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
-public class AIFactory {
+public class AiFactory {
 
   public Jarvis createJarvis(Difficulty difficulty) {
     switch (difficulty) {

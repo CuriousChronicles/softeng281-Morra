@@ -46,6 +46,8 @@ public class Player {
       } else {
         MessageCli.INVALID_INPUT.printMessage();
       }
+    } else {
+      MessageCli.INVALID_INPUT.printMessage();
     }
     return isValidInput;
   }
