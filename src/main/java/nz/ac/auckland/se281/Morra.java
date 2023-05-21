@@ -12,7 +12,6 @@ public class Morra {
   private int jarvisPoints;
   private int playerPoints;
 
-  // Create a static method, so then i don't need to create an instance of factory!
   private AiFactory jarvisFactory = new AiFactory();
   private Jarvis jarvis;
 
@@ -92,11 +91,9 @@ public class Morra {
   }
 
   public void showStats() {
-    // System.out.println(isNewGame);
     if (isNewGame) {
       // Print players stats
       int pointsNeededPlayer = pointsToWin - playerPoints;
-      String name = player.getPlayerName();
 
       MessageCli.PRINT_PLAYER_WINS.printMessage(
           playerName, Integer.toString(playerPoints), Integer.toString(pointsNeededPlayer));

@@ -17,7 +17,7 @@ public class Player {
 
     while (isValidInput == false) {
       // Get players inputs
-      System.out.println("Give <fingers> <sum> and press enter");
+      MessageCli.ASK_INPUT.printMessage();
       String input = Utils.scanner.nextLine();
       String[] playerInput = input.split(" ");
       this.playerName = playerName;
@@ -42,13 +42,17 @@ public class Player {
   public boolean isValidInput(String[] playerInput) {
     boolean isValidInput = false;
     // Check if the string inputs can be converted into an integer
-    if (Utils.isInteger(playerInput[0]) && Utils.isInteger(playerInput[1])) {
-      int playerFingers = Integer.parseInt(playerInput[0]);
-      int playerSum = Integer.parseInt(playerInput[1]);
+    if (playerInput.length == 2) {
+      if (Utils.isInteger(playerInput[0]) && Utils.isInteger(playerInput[1])) {
+        int playerFingers = Integer.parseInt(playerInput[0]);
+        int playerSum = Integer.parseInt(playerInput[1]);
 
-      // The the fingers and sum are within the correct range, then set isValidInput to true
-      if ((playerFingers >= 1) && (playerFingers <= 5) && (playerSum >= 1) && (playerSum <= 10)) {
-        isValidInput = true;
+        // The the fingers and sum are within the correct range, then set isValidInput to true
+        if ((playerFingers >= 1) && (playerFingers <= 5) && (playerSum >= 1) && (playerSum <= 10)) {
+          isValidInput = true;
+        } else {
+          MessageCli.INVALID_INPUT.printMessage();
+        }
       } else {
         MessageCli.INVALID_INPUT.printMessage();
       }
