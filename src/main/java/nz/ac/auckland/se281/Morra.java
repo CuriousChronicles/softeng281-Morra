@@ -6,7 +6,7 @@ public class Morra {
 
   private Boolean isNewGame = false;
   private int roundNum = 0;
-  private String playerName = null;
+  private String playerName;
   private Player player;
   private int pointsToWin;
   private int jarvisPoints;
@@ -25,7 +25,7 @@ public class Morra {
     jarvisPoints = 0;
     playerPoints = 0;
     this.pointsToWin = pointsToWin;
-    playerName = options[0];
+    this.playerName = options[0];
 
     // Print welcome player message
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
@@ -92,20 +92,22 @@ public class Morra {
   }
 
   public void showStats() {
-    if (!isNewGame) {
-      MessageCli.GAME_NOT_STARTED.printMessage();
-    } else {
+    // System.out.println(isNewGame);
+    if (isNewGame) {
       // Print players stats
       int pointsNeededPlayer = pointsToWin - playerPoints;
+      String name = player.getPlayerName();
+      System.out.println(name);
+
       MessageCli.PRINT_PLAYER_WINS.printMessage(
-          player.getPlayerName(),
-          Integer.toString(playerPoints),
-          Integer.toString(pointsNeededPlayer));
+          playerName, Integer.toString(playerPoints), Integer.toString(pointsNeededPlayer));
 
       // Print Jarvis stats
       int pointsNeededJarvis = pointsToWin - jarvisPoints;
       MessageCli.PRINT_PLAYER_WINS.printMessage(
           "Jarvis", Integer.toString(jarvisPoints), Integer.toString(pointsNeededJarvis));
+    } else {
+      MessageCli.GAME_NOT_STARTED.printMessage();
     }
   }
 }

@@ -12,6 +12,7 @@ public class Player {
 
   // Play method should get the players fingers and sum guess
   public void play(String playerName) {
+    this.playerName = playerName;
     boolean isValidInput = false;
 
     while (isValidInput == false) {
