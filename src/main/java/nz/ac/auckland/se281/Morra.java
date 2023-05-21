@@ -97,7 +97,6 @@ public class Morra {
       // Print players stats
       int pointsNeededPlayer = pointsToWin - playerPoints;
       String name = player.getPlayerName();
-      System.out.println(name);
 
       MessageCli.PRINT_PLAYER_WINS.printMessage(
           playerName, Integer.toString(playerPoints), Integer.toString(pointsNeededPlayer));
