@@ -1402,5 +1402,104 @@ public class MainTest {
           SHOW_STATS);
       assertContains(GAME_NOT_STARTED.getMessage());
     }
+
+    @Test
+    public void T7_02_full_master_game_test() throws Exception {
+      Utils.random = new java.util.Random(69);
+      runCommands(
+          NEW_GAME + " MASTER 10",
+          "HEHEHEHA",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          PLAY,
+          "1 1",
+          SHOW_STATS,
+          PLAY,
+          "1 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          PLAY,
+          "2 1",
+          SHOW_STATS,
+          PLAY,
+          "2 1",
+          PLAY);
+
+      assertContains(START_ROUND.getMessage("1"));
+      assertDoesNotContain(START_ROUND.getMessage("0"));
+
+      assertContains(PRINT_PLAYER_WINS.getMessage("HEHEHEHA", "0", "10"));
+      assertContains(PRINT_PLAYER_WINS.getMessage("Jarvis", "8", "2"));
+
+      assertContains(START_ROUND.getMessage("24"));
+      assertContains(END_GAME.getMessage("Jarvis", "24"));
+      assertContains(GAME_NOT_STARTED.getMessage());
+    }
+
+    @Test
+    public void strategy_switcher() throws Exception {
+      Utils.random = new java.util.Random(2);
+      runCommands(
+          NEW_GAME + " MASTER 5",
+          "Rick Ashley",
+          PLAY,
+          "1 5",
+          PLAY,
+          "1 5",
+          PLAY,
+          "1 5",
+          PLAY,
+          "1 5",
+          PLAY,
+          "1 7",
+          PLAY,
+          "2 8",
+          PLAY,
+          "3 9",
+          PLAY,
+          "4 6",
+          PLAY,
+          "2 6",
+          PLAY,
+          "1 6");
+      assertContains("Player Jarvis: fingers: 5, sum: 7");
+      assertContains("Result: HUMAN_WINS");
+    }
   }
 }
